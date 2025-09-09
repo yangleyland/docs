@@ -5,7 +5,7 @@
   "banner" : {
     "content":"test banner",
     "dismissible": true,
-  }
+  },
   "colors": {
     "primary": "#16A34A",
     "light": "#07C983",
