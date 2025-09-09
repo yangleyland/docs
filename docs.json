@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "almond",
+  "theme": "palm",
   "name": "Mint Starter Kit",
   "banner": {
     "content": "Banner text",
