@@ -1,6 +1,10 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
+  "theme": "willow",
+  "banner": {
+    "content":"Banner text",
+    "dismissible":true,
+  },
   "name": "Mint Starter Kit",
   "colors": {
     "primary": "#16A34A",
