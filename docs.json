@@ -123,6 +123,17 @@
       "linkedin": "https://www.linkedin.com/company/anacondainc",
       "github": "https://github.com/ContinuumIO",
       "youtube": "https://www.youtube.com/c/ContinuumIo"
-    }
+    },
+    "links": [
+      {
+        "header": "Company",
+        "items": [
+          {
+            "label": "Anaconda Newsletter",
+            "href": "https://www.anaconda.com/newsletter"
+          }
+        ]
+      }
+    ]
   }
 }
