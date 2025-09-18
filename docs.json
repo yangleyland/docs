@@ -9,7 +9,7 @@
   },
   "redirects": [
     {
-      "source": "/process-data",
+      "source": "/process-data/:slug*",
       "destination": "/quickstart"
     }
   ],
