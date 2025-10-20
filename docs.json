@@ -8,6 +8,20 @@
     "light": "#F8FAFC",
     "dark": "#0F172A"
   },
+  "redirects": [
+    {
+      "source": "/process-data/:slug*",
+      "destination": "/process-data/en/:slug*"
+    },
+    {
+      "source": "/test-route/:slug*",
+      "destination": "/test-route"
+    },
+    {
+      "source": "/hello/asdf/:slug*",
+      "destination": "/go-foo/:slug*"
+    }
+  ],
   "navigation": {
     "dropdowns": [
       {
