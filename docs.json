@@ -20,6 +20,10 @@
     {
       "source": "/hello/asdf/:slug*",
       "destination": "/go-foo/:slug*"
+    },
+    {
+      "source": "/first-steps/:slug*",
+      "destination": "/v3/first-steps/:slug*"
     }
   ],
   "navigation": {
