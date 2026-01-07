@@ -15,6 +15,7 @@
     "drilldown": false
   },
   "navigation": {
+    "public": true,
     "languages": [
       {
         "tabs": [
