@@ -15,7 +15,6 @@
     "drilldown": false
   },
   "navigation": {
-    "public": true,
     "languages": [
       {
         "tabs": [
@@ -23,6 +22,7 @@
             "tab": "Documentation",
             "groups": [
               {
+                "public":true,
                 "group": "Get started",
                 "icon": "rocket",
                 "pages": [
