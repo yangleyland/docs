@@ -1659,6 +1659,10 @@
       "measurementId": "G-RCYWHL7EQ7"
     }
   },
+  "banner": {
+    "content": "TTS-1.5 is here: under 120ms latency, optimized stability!",
+    "dismissible": true
+  },
   "seo": {
     "metatags": {
       "canonical": "https://www.mintlify.com/docs",
