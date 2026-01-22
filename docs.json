@@ -22,6 +22,7 @@
             "tab": "Documentation",
             "groups": [
               {
+                "public":true,
                 "group": "Get started",
                 "icon": "rocket",
                 "pages": [
@@ -34,7 +35,6 @@
                 ]
               },
               {
-                "public":true,
                 "group": "Organize",
                 "icon": "map",
                 "pages": [
@@ -45,6 +45,7 @@
                 ]
               },
               {
+                "public":true,
                 "group": "Customize",
                 "icon": "paint-bucket",
                 "pages": [
