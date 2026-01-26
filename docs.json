@@ -23,7 +23,7 @@
             "groups": [
               {
                 "group": "Get started",
-                "icon": "rocket",
+                "icon": "/icons/test.svg",
                 "pages": [
                   "index",
                   "quickstart",
