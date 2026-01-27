@@ -4,7 +4,8 @@ description: "Host your documentation at your website's custom domain"
 og:description: "Host your documentation at your website's custom domain"
 ---
 
-To host your documentation on a custom domain:
+To host your documentation on a custom domain, we want this to show up
+
 1. Add your domain in your dashboard.
 2. Configure DNS settings on your domain provider.
 3. Allow time for DNS to propagate and TLS certificates to be automatically provisioned.
@@ -25,6 +26,7 @@ To host your documentation on a custom domain:
     className="block dark:hidden"
     src="/images/domain/add-custom-domain-light.png"
   />
+
   <img
     alt="The Custom domain setup page showing the field to enter your custom domain URL."
     className="hidden dark:block"
@@ -46,7 +48,7 @@ CNAME | docs | cname.mintlify-dns.com.
 </Tip>
 
 <Frame>
-  <img alt="Sample CNAME settings for a custom domain hosted on Vercel." src="https://mintlify-assets.b-cdn.net/mintlify-dns.png" />
+  ![Sample CNAME settings for a custom domain hosted on Vercel.](https://mintlify-assets.b-cdn.net/mintlify-dns.png)
 </Frame>
 
 ### DNS propagation
@@ -79,7 +81,6 @@ The `/.well-known/acme-challenge` path is reserved for certificate validation an
   <Accordion title="Vercel verification">
     If Vercel is your domain provider, you must add a verification `TXT` record. This information appears on your dashboard after submitting your custom domain, and is emailed to you.
   </Accordion>
-
   <Accordion title="Cloudflare encryption mode">
     If Cloudflare is your DNS provider, you must enable the "Full (strict)" mode for the SSL/TLS encryption setting. Additionally, disable "Always Use HTTPS" in your Edge Certificates settings. Cloudflare's HTTPS redirect will block Let's Encrypt from validating your domain during certificate provisioning.
   </Accordion>
