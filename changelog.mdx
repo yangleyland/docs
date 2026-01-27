@@ -5,6 +5,48 @@ rss: true
 noindex: true
 ---
 
+<Update label="January 27" tags={["New releases", "Improvements"]} rss={{ title: "Draggable Photo Cards", description: "New drag-and-drop photo reordering, simplified location selection, and UI improvements" }}>
+  ## Draggable Photo Cards
+
+  Users can now **drag and drop profile photos** to reorder them on their profile. This provides an intuitive way to arrange photos and set your primary profile picture.
+
+  ### New components
+
+  - **DraggablePhotoCard**: A reusable card component with smooth drag animations powered by `react-native-reanimated` and `react-native-gesture-handler`
+  - **DraggablePhotoGrid**: A container component that manages drag state and handles photo reordering
+
+  ### Features
+
+  - Smooth scale, rotation, and opacity animations during drag
+  - Haptic feedback when dragging starts and when photos are swapped
+  - Visual feedback showing drop targets
+  - Automatic database sync when photos are reordered
+  - Delete button overlay on each photo card
+
+  ## Simplified Location Selection
+
+  The location screen has been redesigned with a simpler multiple-choice city selection:
+
+  - Pre-defined options for **New York City**, **Los Angeles**, and **Bay Area**
+  - "My city isn't listed" option with custom city input and geocoding
+  - Removed the interactive map interface for a cleaner, faster experience
+
+  ## UI Improvements
+
+  - Empty photo slots now display an image icon (`Ionicons.image-outline`) instead of a plain "+" symbol
+  - Updated both the onboarding photo picker and picture review screens with the new icon style
+  - Added Metro bundler optimizations with `inlineRequires: true` for better performance
+
+  ## Technical details
+
+  The draggable photo system uses:
+  - `react-native-reanimated` for 60fps animations
+  - `react-native-gesture-handler` for smooth gesture tracking
+  - `expo-haptics` for tactile feedback
+  - Worklet functions for UI thread animations
+
+</Update>
+
 <Update label="October 31" tags={["Improvements"]} rss={{ title: "Weekly Updates", description: "API playground enhancements, table improvements, performance optimizations, and bug fixes" }}>
   ## Assistant improvements
 
@@ -427,7 +469,7 @@ noindex: true
 <Update label="August 9" tags={["Improvements"]} rss={{ title: "Weekly Updates", description: "Search API, OAuth polish, asset serving, and MCP tooling" }}>
   ## Authentication improvements
 
-  - Group-level public access: make entire page groups public via `docs.json` so you don’t need `public: true` on each page ([learn more](https://mintlify.com/docs/authentication-personalization/authentication-setup#group-level))
+  - Group-level public access: make entire page groups public via `docs.json` so you don't need `public: true` on each page ([learn more](https://mintlify.com/docs/authentication-personalization/authentication-setup#group-level))
   - Support [`logoutURL in OAuth configuration`](https://mintlify.com/docs/authentication-personalization/authentication-setup#implementation-3) to delete upstream cookies and complete sign-out
   - On OAuth errors, users are redirected to your specified `logoutURL` to restart the auth flow
   - Fixed a flash of a 500 error during OAuth/JWT flows before the callback
@@ -576,7 +618,7 @@ noindex: true
 
   - Fixed top margin for changelog components
   - Improved reliability of right click behavior
-  - After clicking publish, you’ll stay on the same page instead of being brought to an empty state
+  - After clicking publish, you'll stay on the same page instead of being brought to an empty state
   - Standardized colors in file icons
   - Improved reliability after selecting new branches several times in a row
   - Removed Diff mode
@@ -653,7 +695,7 @@ noindex: true
 
   ## .md support for LLMs
 
-  All documentation pages are now automatically available as plain Markdown files—just append `.md` to the URL. This makes it easier for LLMs to ingest individual pages from your documentation.
+  All documentation pages are now automatically available as plain Markdown files—just append `.md` to the URL. This makes it easier for LLMs to ingest individual pages from your documentation.
 
   ## More Themes
 
@@ -672,7 +714,7 @@ noindex: true
 
   - [Guide to Technical Writing:](https://mintlify.com/guides/introduction)Best practices for writing technical documentation, including audience research, content types, and writing tips.
   - [Dropdown component](organize/navigation#dropdowns): Organize navigation with a dropdown, in addition to tabs and anchors.
-  - [AI syntax fixer](https://x.com/ricardonunez_io/status/1892334887644123192): The web editor will catch if there’s a parsing error and use AI to suggest fixes.
+  - [AI syntax fixer](https://x.com/ricardonunez_io/status/1892334887644123192): The web editor will catch if there's a parsing error and use AI to suggest fixes.
 </Update>
 
 <Update label="January 2025" tags={["Improvements"]}>
@@ -689,7 +731,7 @@ noindex: true
 
   ## Revamped API Playground
 
-  We’ve overhauled the design and performance of the [API Playground](/api-playground/). Updates include:
+  We've overhauled the design and performance of the [API Playground](/api-playground/). Updates include:
 
   - Easier detail expansion for an overview of a field
   - More intuitive nested design. For example, adding or deleting items
