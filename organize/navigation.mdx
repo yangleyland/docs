@@ -7,7 +7,7 @@ The [navigation](/organize/settings#param-navigation) property in `docs.json` co
 
 With proper navigation configuration, you can organize your content so that users can find exactly what they're looking for.
 
-## Pages
+## Update 2
 
 Pages are the most fundamental navigation component. Pages map to the MDX files that make up your documentation.
 
@@ -248,7 +248,7 @@ In the `navigation` object, `anchors` is an array where each entry is an object 
 }
 ```
 
-For anchors that direct to external links only, use the `global` keyword. Anchors in a `global` object must have an `href` field and cannot point to a relative path. 
+For anchors that direct to external links only, use the `global` keyword. Anchors in a `global` object must have an `href` field and cannot point to a relative path.
 
 Global anchors are particularly useful for linking to resources that are not part of your documentation, but should be readily accessible to your users like a blog or support portal.
 
@@ -488,24 +488,60 @@ In the `navigation` object, `languages` is an array where each entry is an objec
 We currently support the following languages for localization:
 
 <CardGroup cols={2}>
-  <Card title="Arabic (ar)" icon="/images/navigation/languages/ar.png" horizontal />
-  <Card title="Chinese (cn)" icon="/images/navigation/languages/cn.png" horizontal />
-  <Card title="Chinese (zh-Hant)" icon="/images/navigation/languages/cn.png" horizontal />
-  <Card title="Dutch (nl)" icon="/images/navigation/languages/nl.png" horizontal />
-  <Card title="English (en)" icon="/images/navigation/languages/en.png" horizontal />
-  <Card title="French (fr)" icon="/images/navigation/languages/fr.png" horizontal />
-  <Card title="German (de)" icon="/images/navigation/languages/de.png" horizontal />
-  <Card title="Indonesian (id)" icon="/images/navigation/languages/id.png" horizontal />
-  <Card title="Italian (it)" icon="/images/navigation/languages/it.png" horizontal />
-  <Card title="Japanese (jp)" icon="/images/navigation/languages/jp.png" horizontal />
-  <Card title="Korean (ko)" icon="/images/navigation/languages/ko.png" horizontal />
-  <Card title="Latvian (lv)" icon="/images/navigation/languages/lv.png" horizontal />
-  <Card title="Norwegian (no)" icon="/images/navigation/languages/no.png" horizontal />
-  <Card title="Portuguese (pt-BR)" icon="/images/navigation/languages/pt-br.png" horizontal />
-  <Card title="Russian (ru)" icon="/images/navigation/languages/ru.png" horizontal />
-  <Card title="Spanish (es)" icon="/images/navigation/languages/es.png" horizontal />
-  <Card title="Swedish (sv)" icon="/images/navigation/languages/sv.png" horizontal />
-  <Card title="Turkish (tr)" icon="/images/navigation/languages/tr.png" horizontal />
+  <Card title="Arabic (ar)" icon="/images/navigation/languages/ar.png" horizontal>
+    
+  </Card>
+  <Card title="Chinese (cn)" icon="/images/navigation/languages/cn.png" horizontal>
+    
+  </Card>
+  <Card title="Chinese (zh-Hant)" icon="/images/navigation/languages/cn.png" horizontal>
+    
+  </Card>
+  <Card title="Dutch (nl)" icon="/images/navigation/languages/nl.png" horizontal>
+    
+  </Card>
+  <Card title="English (en)" icon="/images/navigation/languages/en.png" horizontal>
+    
+  </Card>
+  <Card title="French (fr)" icon="/images/navigation/languages/fr.png" horizontal>
+    
+  </Card>
+  <Card title="German (de)" icon="/images/navigation/languages/de.png" horizontal>
+    
+  </Card>
+  <Card title="Indonesian (id)" icon="/images/navigation/languages/id.png" horizontal>
+    
+  </Card>
+  <Card title="Italian (it)" icon="/images/navigation/languages/it.png" horizontal>
+    
+  </Card>
+  <Card title="Japanese (jp)" icon="/images/navigation/languages/jp.png" horizontal>
+    
+  </Card>
+  <Card title="Korean (ko)" icon="/images/navigation/languages/ko.png" horizontal>
+    
+  </Card>
+  <Card title="Latvian (lv)" icon="/images/navigation/languages/lv.png" horizontal>
+    
+  </Card>
+  <Card title="Norwegian (no)" icon="/images/navigation/languages/no.png" horizontal>
+    
+  </Card>
+  <Card title="Portuguese (pt-BR)" icon="/images/navigation/languages/pt-br.png" horizontal>
+    
+  </Card>
+  <Card title="Russian (ru)" icon="/images/navigation/languages/ru.png" horizontal>
+    
+  </Card>
+  <Card title="Spanish (es)" icon="/images/navigation/languages/es.png" horizontal>
+    
+  </Card>
+  <Card title="Swedish (sv)" icon="/images/navigation/languages/sv.png" horizontal>
+    
+  </Card>
+  <Card title="Turkish (tr)" icon="/images/navigation/languages/tr.png" horizontal>
+    
+  </Card>
 </CardGroup>
 
 ```json
@@ -614,6 +650,7 @@ You can use any combination of anchors, tabs, dropdowns, and products. The compo
 }
 ```
 
+
 ```json Tabs with external anchor
 {
   "navigation": {
@@ -671,6 +708,7 @@ Breadcrumbs display the full navigation path at the top of pages. Some themes ha
 }
 ```
 
+
 ```json Display parent section only
 "styling": {
   "eyebrows": "section"
@@ -692,15 +730,18 @@ When a user expands a navigation group, some themes will automatically navigate 
 - Leave unset to use the theme's default behavior.
 
 <CodeGroup>
+
 ```json Force navigation
 "interaction": {
   "drilldown": true  // Force navigation to first page when a user expands a dropdown
 }
 ```
 
+
 ```json Prevent navigation
 "interaction": {
   "drilldown": false // Never navigate, only expand or collapse the group
 }
 ```
+
 </CodeGroup>
