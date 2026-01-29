@@ -15,9 +15,9 @@ description: "Use the CLI to preview and maintain your documentation locally"
   alt="Decorative graphic representing the CLI."
 />
 
-Use the CLI to preview your documentation locally as you write and edit. View changes in real-time before deploying, test your documentation site's appearance and functionality, and catch issues like broken links or accessibility problems.111
+Use the CLI to preview your documentation locally as you write and edit. View changes in real-time before deploying, test your documentation site's appearance and functionality, and catch issues like broken links or accessibility problems.
 
-The CLI also has utilities for maintaining your documentation, including commands to rename files, validate OpenAPI specifications, and migrate content between formats. a
+The CLI also has utilities for maintaining your documentation, including commands to rename files, validate OpenAPI specifications, and migrate content between formats.
 
 ## Install the CLI
 
@@ -25,7 +25,7 @@ The CLI also has utilities for maintaining your documentation, including command
   **Prerequisite**: The CLI requires [Node.js](https://nodejs.org/en) v19 or higher.
 </Info>
 
-Run the following command to install the [CLI](https://www.npmjs.com/package/mint):
+Install the CLI by running one of the following commands in your terminal:
 
 <CodeGroup>
 
@@ -33,204 +33,221 @@ Run the following command to install the [CLI](https://www.npmjs.com/package/min
 npm i -g mint
 ```
 
-
-```bash pnpm
+```bash pnpm  
 pnpm add -g mint
+```
+
+```bash yarn
+yarn global add mint
+```
+
+```bash bun
+bun add -g mint
 ```
 
 </CodeGroup>
 
-## Preview locally
+Run `mint --version` to confirm the installation was successful.
 
-To generate a local preview, navigate to your documentation directory (where your `docs.json` file is located) and run the following command:
+## Create a new project
+
+<Tip>
+  If you already have a documentation project, skip this section and jump to [Local development](#local-development).
+</Tip>
+
+To create a new documentation project with the CLI, run the following command:
+
+```bash
+mint new
+```
+
+This command creates a new folder for your documentation project with the following structure:
+
+```
+my-docs/
+├── docs.json
+├── index.mdx
+├── quickstart.mdx
+└── introduction.mdx
+```
+
+### Flags
+
+You can customize the project creation process with the following flags:
+
+<ResponseField name="--org-id" type="string">
+  The organization ID to associate with the project. Find your organization ID in the [dashboard](https://dashboard.mintlify.com) under **Settings** → **Organization**.
+</ResponseField>
+
+<ResponseField name="--docs-directory" type="string" default=".">
+  The directory to create the documentation project in.
+</ResponseField>
+
+<ResponseField name="--project-name" type="string">
+  The name of the project. This will be used as the folder name and the default site title.
+</ResponseField>
+
+#### Example with flags
+
+```bash
+mint new --org-id="your-org-id" --project-name="My Documentation" --docs-directory="./docs"
+```
+
+## Local development
+
+To run a local development server and preview your documentation, navigate to the directory containing your `docs.json` file and run:
 
 ```bash
 mint dev
 ```
 
-A local preview of your documentation is available at `http://localhost:3000`.
+By default, the development server runs on `localhost:3000`. Open this URL in your browser to preview your documentation.
 
-Alternatively, if you do not want to install the CLI globally, you can run a one-time script:
+<Frame>
+  <img
+    src="/images/installation/local-development-preview-light.png"
+    alt="Local development preview"
+    className="block dark:hidden"
+  />
 
-```bash
-npx mint dev
+  <img
+    src="/images/installation/local-development-preview-dark.png"
+    alt="Local development preview"
+    className="hidden dark:block"
+  />
+</Frame>
+
+The development server automatically reloads when you make changes to your documentation files, so you can see your updates in real-time.
+
+### Environment variables
+
+You can pass environment variables to the development server by creating a `.env` file in your documentation directory.
+
+For example, if your documentation uses API calls that require authentication, you can store your API keys in the `.env` file:
+
+```.env
+API_KEY=your-api-key-here
+API_BASE_URL=https://api.yourservice.com
 ```
 
-### Custom ports
-
-By default, the CLI uses port 3000. You can customize the port using the `--port` flag. To run the CLI on port 3333, for instance, use this command:
-
-```bash
-mint dev --port 3333
-```
-
-If you attempt to run on a port that is already in use, it will use the next available port:
-
-```mdx
-Port 3000 is already in use. Trying 3001 instead.
-```
-
-### Preview as a specific group
-
-If you use partial authentication to restrict access to your documentation, you can preview as a specific authentication group by using the `--groups [groupname]` flag.
-
-For example, if you have a group named `admin`, you can preview as a member of that group with the command:
-
-```bash
-mint dev --groups admin
-```
-
-## Create a new project
-
-To create a new documentation project, run the following command:
-
-```bash
-mint new [directory]
-```
-
-This command clones the [starter kit](https://github.com/mintlify/starter) into a specified directory. If no directory is specified, the CLI tool prompts you to create a new subdirectory or overwrite the current directory.
+These variables will be available in your MDX files and custom components during development.
 
 <Warning>
-  If you overwrite the current directory, any existing files in the directory will be deleted.
+  Environment variables are only available during local development. For production builds, you'll need to configure environment variables in your deployment platform.
 </Warning>
 
-The CLI tool prompts you for a project name and [theme](/customize/themes) to finish setting up your project.
+### Flags
 
-You can run `mint new` with the following flags:
+The `mint dev` command supports the following flags:
 
-- `--theme`: Set the theme of the new project.
-- `--name`: Set the name of the new project.
-- `--force`: Overwrite the current directory if it already exists.
+<ResponseField name="--port" type="number" default="3000">
+  The port to run the development server on.
+</ResponseField>
 
-For example, to create a new project in the `docs` directory with the name `my-project` and the theme `linden`, run the following command:
+<ResponseField name="--host" type="string" default="localhost">
+  The host to run the development server on. Use `0.0.0.0` to make the server accessible from other devices on your network.
+</ResponseField>
 
-```bash
-mint new docs --name my-project --theme linden
-```
-
-## Update the CLI
-
-If your local preview is out of sync with what you see on the web in the production version, update your local CLI:
+#### Example with flags
 
 ```bash
-mint update
+mint dev --port 8000 --host 0.0.0.0
 ```
 
-If this `mint update` command is not available on your local version, re-install the CLI with the latest version:
+## Additional CLI commands
 
-<CodeGroup>
+The CLI includes additional utilities for maintaining your documentation:
 
-```bash npm
-npm i -g mint@latest
-```
+### Validate your documentation
 
-
-```bash pnpm
-pnpm add -g mint@latest
-```
-
-</CodeGroup>
-
-## Additional commands
-
-### Find broken links
-
-Identify any broken internal links with the following command:
+Check your documentation for common issues like broken links, missing images, and invalid configuration:
 
 ```bash
-mint broken-links
+mint validate
 ```
 
-### Find accessibility issues
+### Install dependencies
 
-Test the color contrast ratios and search for missing alt text on images and videos in your documentation with the following command:
+Automatically install the required dependencies for your documentation project:
 
 ```bash
-mint a11y
+mint install
 ```
 
-### Check OpenAPI spec
+### Generate OpenAPI documentation
 
-Check your OpenAPI file for errors with the following command:
+Generate MDX files from an OpenAPI specification:
 
 ```bash
-mint openapi-check <OpenAPI filename or URL>
+mint generate-openapi [path-to-openapi-file]
 ```
 
-Pass a filename (for example, `./openapi.yaml`) or a URL (for example, `https://petstore3.swagger.io/api/v3/openapi.json`).
+### Version information
 
-### Rename files
-
-Rename and update all references to files with the following command:
+Check which version of the CLI you're running:
 
 ```bash
-mint rename <path/to/old-filename> <path/to/new-filename>
+mint --version
 ```
 
-### Migrate MDX endpoint pages
+### Help
 
-Migrate MDX endpoint pages to autogenerated pages from your OpenAPI specification with the following command:
+View available commands and options:
 
 ```bash
-mint migrate-mdx
+mint --help
 ```
-
-This command converts individual MDX endpoint pages to autogenerated pages defined in your `docs.json`, moves MDX content to the `x-mint` extension in your OpenAPI specification, and updates your navigation. See [Migrating from MDX](/guides/migrating-from-mdx) for detailed information.
-
-## Formatting
-
-While developing locally, we recommend using extensions in your IDE to recognize and format `MDX` files.
-
-If you use Cursor, Windsurf, or VS Code, we recommend the [MDX VS Code extension](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx) for syntax highlighting, and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) for code formatting.
-
-If you use JetBrains, we recommend the [MDX IntelliJ IDEA plugin](https://plugins.jetbrains.com/plugin/14944-mdx) for syntax highlighting, and setting up [Prettier](https://prettier.io/docs/webstorm) for code formatting.
 
 ## Troubleshooting
 
-<AccordionGroup>
-  <Accordion title='Error: Could not load the "sharp" module using the darwin-arm64 runtime'>
-    This may be due to an outdated version of node. Try the following:
+### Node.js version issues
 
-    1. Remove the currently-installed version of the mint CLI: `npm uninstall -g mint`
-    2. Upgrade to Node.js.
-    3. Reinstall the mint CLI: `npm install -g mint`
-  </Accordion>
-  <Accordion title="Issue: Encountering an unknown error">
-    **Solution**: Go to the root of your device and delete the `~/.mintlify` folder. Afterwards, run `mint dev` again.
-  </Accordion>
-  <Accordion title="Error: permission denied">
-    This is due to not having the required permissions to globally install node packages.
+If you encounter issues with the CLI installation or development server, ensure you're using Node.js v19 or higher:
 
-    **Solution**: Try running `sudo npm i -g mint`. You will be prompted for your password, which is the one you use to unlock your computer.
-  </Accordion>
-  <Accordion title="The local preview doesn't look the same as my docs do on the web">
-    This is likely due to an outdated version of the CLI.
+```bash
+node --version
+```
 
-    **Solution:** Run `mint update` to get the latest changes.
-  </Accordion>
-  <Accordion title="mintlify vs. mint package">
-    If you have any problems with the CLI package, you should first run `npm ls -g`. This command shows what packages are globally installed on your machine.
+If you need to upgrade Node.js, visit [nodejs.org](https://nodejs.org) to download the latest version.
 
-    If you don't use npm or don't see it in the -g list, try `which mint` to locate the installation.
+### Permission issues
 
-    If you have a package named `mint` and a package named `mintlify` installed, you should uninstall `mintlify`.
+If you get permission errors during installation, you may need to use `sudo` (on macOS/Linux) or run your terminal as an administrator (on Windows):
 
-    1. Uninstall the old package:
+```bash
+sudo npm i -g mint
+```
 
-    ```bash
-      npm uninstall -g mintlify
-    ```
+Alternatively, configure npm to install global packages in a different directory that doesn't require elevated permissions.
 
-    2. Clear your npm cache:
+### Port conflicts
 
-    ```bash
-      npm cache clean --force
-    ```
+If port 3000 is already in use, the CLI will automatically try to find an available port. You can also specify a different port using the `--port` flag:
 
-    3. Reinstall the new package:
+```bash
+mint dev --port 8080
+```
 
-    ```bash
-    npm i -g mint
-    ```
-  </Accordion>
-</AccordionGroup>
+### Missing docs.json
+
+The CLI looks for a `docs.json` file in the current directory. If you get an error about a missing configuration file, ensure you're running the command from the correct directory or that your `docs.json` file exists and is properly formatted.
+
+## Next steps
+
+After installing the CLI and setting up local development, explore these resources to enhance your documentation:
+
+<Card title="Configure global settings" icon="gear" horizontal href="/organize/settings">
+  Learn how to customize your `docs.json` configuration file.
+</Card>
+
+<Card title="Organize your navigation" icon="map" horizontal href="/organize/navigation">
+  Structure your documentation with clear, intuitive navigation.
+</Card>
+
+<Card title="Add interactive components" icon="puzzle-piece" horizontal href="/components/accordions">
+  Enhance your documentation with interactive elements.
+</Card>
+
+<Card title="Deploy your documentation" icon="rocket" horizontal href="/deploy/deployments">
+  Learn how to deploy your documentation to production.
+</Card>
