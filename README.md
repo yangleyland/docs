@@ -1,3 +1,5 @@
+hello world
+
 # Mintlify Documentation
 
 Install the [Mint CLI](https://www.npmjs.com/package/mint) to preview the documentation changes locally. To install, use the following command
