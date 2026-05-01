@@ -1,14 +1,16 @@
 ---
-title: 'Prompt component'
-description: 'Embed shareable AI prompts readers can copy or open in Cursor'
-icon: 'robot'
+title: "Prompt component"
+description: "Embed shareable AI prompts readers can copy or open in Cursor"
+icon: "robot"
 ---
+
+3:42 pm
 
 The `Prompt` component displays a pre-built AI prompt with one-click actions to copy it to the clipboard or open it directly in Cursor. It's ideal for any docs page where you want to hand readers a ready-to-use prompt.
 
 ## Basic usage
 
-<Prompt description="Summarize this API endpoint">
+<Prompt description="Summarize this API endpoint" actions={["copy"]}>
 You are a technical writer. Given the following API endpoint documentation, write a one-paragraph summary that explains what the endpoint does, what inputs it requires, and what it returns. Be concise and use plain language.
 </Prompt>
 
@@ -24,11 +26,7 @@ inputs it requires, and what it returns. Be concise and use plain language.
 
 Add `actions={["copy", "cursor"]}` to also surface an "Open in Cursor" button. This is especially useful for prompts readers will use in their editor.
 
-<Prompt
-  description="Generate a typed API client"
-  icon="code"
-  actions={["copy", "cursor"]}
->
+<Prompt description="Generate a typed API client" icon="code" actions={["copy", "cursor"]}>
 You are an expert TypeScript developer. Given the following OpenAPI specification, generate a fully-typed API client using native fetch. Include:
 - A base client class with configurable baseUrl and auth headers
 - One method per endpoint, with typed request parameters and response types
