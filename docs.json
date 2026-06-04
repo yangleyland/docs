@@ -102,6 +102,7 @@
   "contextual": {
     "options": [
       "copy",
+      "download-pdf",
       "view",
       "chatgpt",
       "claude",
